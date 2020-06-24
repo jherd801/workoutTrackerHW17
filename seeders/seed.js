@@ -1,6 +1,10 @@
 let mongoose = require("mongoose");
 let db = require("../models");
 
+// error - node seeders/seed.js returns error "TypeError: Cannot read property 'deleteMany' of undefined"
+// meaning "Workout" is not being defined yet
+const Workout = mongoose.model("Workout", Workout);
+
 mongoose.connect("mongodb://localhost/workout", {
   useNewUrlParser: true,
   useFindAndModify: false

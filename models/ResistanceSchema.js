@@ -3,11 +3,12 @@ const Schema = mongoose.Schema;
 
 // Mongoose schema to structure a newly created resistance workout
 const ResistanceSchema = new Schema({
-    exercise: String,
+    type: String,
+    name: String,
+    duration: Number,
     weight: Number,
-    sets: Number,
     reps: Number,
-    duration: Number
+    sets: Number
 });
 
 const Resistance = mongoose.model("Resistance", ResistanceSchema);
