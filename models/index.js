@@ -5,10 +5,7 @@ const Schema = mongoose.Schema;
 // Mongoose schema to structure a newly created workout object
 
 const WorkoutSchema = new Schema({
-    date: {
-        type: Date,
-        unique: false
-    },
+    day: Date,
     exercises: [
         {
         type: String,
