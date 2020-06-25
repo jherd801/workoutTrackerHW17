@@ -1,9 +1,6 @@
 let mongoose = require("mongoose");
 let db = require("../models");
 
-// error - node seeders/seed.js returns error "TypeError: Cannot read property 'deleteMany' of undefined"
-// meaning "Workout" is not being defined yet
-const Workout = mongoose.model("Workout", Workout);
 
 mongoose.connect("mongodb://localhost/workout", {
   useNewUrlParser: true,
@@ -139,8 +136,8 @@ let workoutSeed = [
   }
 ];
 
-db.Workout.deleteMany({})
-  .then(() => db.Workout.collection.insertMany(workoutSeed))
+db.deleteMany({})
+  .then(() => db.collection.insertMany(workoutSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
