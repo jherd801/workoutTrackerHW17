@@ -1,5 +1,5 @@
 let mongoose = require("mongoose");
-let db = require("../models");
+let db = require("../models/index.js");
 
 
 mongoose.connect("mongodb://localhost/workout", {
@@ -133,11 +133,22 @@ let workoutSeed = [
         distance: 2
       }
     ]
+  },
+  {
+    day: new Date().setDate(new Date().getDate()-1),
+    exercises: [
+      {
+        type: "resistance",
+        name: "Military Press",
+        duration: 88,
+        distance: 2
+      }
+    ]
   }
 ];
 
-db.deleteMany({})
-  .then(() => db.collection.insertMany(workoutSeed))
+db.Workout.deleteMany({})
+  .then(() => db.Workout.collection.insertMany(workoutSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
