@@ -1,5 +1,3 @@
-const apiRoutes = require("../routes");
-
 const API = {
   async getLastWorkout() {
     let res;

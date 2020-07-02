@@ -1,51 +1,49 @@
-const express = require("express");
-const app = express();
-const db = require("../models/index.js");
-const { Workout } = require("../models/index.js");
+const db = require("../models");
+const { Workout } = require("../models");
 
-
-// API route to get all workouts
-app.get("/workouts", (req, res) => {
-    db.Workout.find({})
-    .then(dbWorkout => {
-      res.json(dbWorkout);
-    })
-    .catch(err => {
-      res.json(err)
-    });
-});
-
-// -----------------------   Shit doesn't work :(    ---------------------------
-// Route to get a single workout by id
-app.get("/workouts/:id", (req, res) => {
-    db.Workout.find({})
-    .then(dbWorkout => {
-        res.json(dbWorkout);
-    })
-    .catch(err => {
+module.exports = function (app) {
+    // API route to get all workouts
+    app.get("/api/workouts", (req, res) => {
+        db.Workout.find({})
+        .then(function (dbWorkouts) {
+        res.json(dbWorkouts);
+        })
+        .catch(err => {
         res.json(err)
+        });
     });
-});
-  
 
-// API route to post to all workouts
-app.post("/workouts", ({ body }, res) => {
-    Workout.create(body)
-    .then(dbWorkout => {
-        res.json(dbWorkout);
-    })
-    .catch(err => {
-        res.json(err);
+    // Route to get a single workout by id
+    app.get("/api/workouts/:id", (req, res) => {
+        db.Workout.find({})
+        .then(dbWorkout => {
+            res.json(dbWorkout);
+        })
+        .catch(err => {
+            res.json(err)
+        });
     });
-});
-
-// API route to update a specific workout
-app.put("/api/workouts/:id", function (req, res) {
-
-});
-
-// API route to get all workouts within a defined range
-app.get("/api/workouts/range", function(req, res) {
     
-});
+
+    // API route to post to all workouts
+    app.post("/api/workouts", ({ body }, res) => {
+        Workout.create(body)
+        .then(dbWorkout => {
+            res.json(dbWorkout);
+        })
+        .catch(err => {
+            res.json(err);
+        });
+    });
+
+    // API route to update a specific workout
+    app.put("/api/api/workouts/:id", function (req, res) {
+
+    });
+
+    // API route to get all workouts within a defined range
+    app.get("/api/api/workouts/range", function(req, res) {
+        
+    });
+};
 
