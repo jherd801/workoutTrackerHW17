@@ -1,7 +1,8 @@
 # workoutTrackerHW17
 
 Screenshot of Deployed Application
-![Image description](https://github.com/jherd801/workoutTrackerHQ17/blob/master/assets/Screenshot.png)
+![Image description](https://github.com/jherd801/workoutTrackerHW17/blob/master/assets/Screenshot.png)
+
 
 Description:
 This application allows users to track workout information over time to better manage their workout schedule. Users can create new workouts, view previous workouts, and view cumulative statistics of their workout history.
