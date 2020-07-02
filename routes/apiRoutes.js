@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const db = require("../models/index.js");
+const { Workout } = require("../models/index.js");
 
 
 // API route to get all workouts
@@ -12,15 +13,26 @@ app.get("/workouts", (req, res) => {
     .catch(err => {
       res.json(err)
     });
-  });
+});
 
-// API route to post to all workouts
-app.post("/api/workouts", ({ body }, res) => {
-    db.Workout.create(body)
-    .then(({ _id }) => db.Workout.findOneAndUpdate({}, { $push: { workouts: _id } } { new: true }))
+// -----------------------   Shit doesn't work :(    ---------------------------
+// Route to get a single workout by id
+app.get("/workouts/:id", (req, res) => {
+    db.Workout.find({})
     .then(dbWorkout => {
         res.json(dbWorkout);
-        console.log(dbWorkout);
+    })
+    .catch(err => {
+        res.json(err)
+    });
+});
+  
+
+// API route to post to all workouts
+app.post("/workouts", ({ body }, res) => {
+    Workout.create(body)
+    .then(dbWorkout => {
+        res.json(dbWorkout);
     })
     .catch(err => {
         res.json(err);
