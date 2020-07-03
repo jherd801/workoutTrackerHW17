@@ -37,12 +37,12 @@ module.exports = function (app) {
     });
 
     // API route to update a specific workout
-    app.put("/api/api/workouts/:id", function (req, res) {
+    app.put("/api/workouts/:id", function (req, res) {
 
     });
 
     // API route to get all workouts within a defined range
-    app.get("/api/api/workouts/range", function(req, res) {
+    app.get("/api/workouts/range", function(req, res) {
         
     });
 };
